@@ -1,3 +1,5 @@
+$fa=1;
+$fs=.2;
 boxsize = 150;
 wallthickness = .45*3;
 capdepth=3;
