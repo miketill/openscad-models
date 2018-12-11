@@ -1,11 +1,14 @@
 $fa=1;
 $fs=.2;
-boxsize = 150;
-wallthickness = .45*3;
-capdepth=3;
+boxsize = 100;
+wallthickness = .6*3;
+capdepth=5;
+tol=.08;
 
 innerbox = boxsize - wallthickness*2;
-hole=boxsize/3;
+capbox = boxsize - wallthickness*2 - tol*2;
+
+hole=50;
 opening=hole*1.5;
 openheight=hole/2;
 
@@ -18,8 +21,8 @@ difference() {
 translate([boxsize+20,0,0]) {
     difference() {
         union() {
-            translate([wallthickness,wallthickness,0])
-                cube([innerbox,innerbox,capdepth]);
+            translate([wallthickness+tol,wallthickness+tol,0])
+                cube([capbox,capbox,capdepth]);
             translate([0,0,capdepth])
                 cube([boxsize,boxsize,wallthickness]);
         }
