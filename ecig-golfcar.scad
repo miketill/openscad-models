@@ -1,3 +1,4 @@
+$fn=360;
 bwidth=66;
 twidth=72;
 sheight=70;
