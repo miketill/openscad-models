@@ -1,7 +1,7 @@
 //131x45x45
 wall=1.2;
 length=131;
-width=45;
+width=45.5;
 height=width+1.0;
 //*
 for (x = [0:3]) {
