@@ -5,15 +5,22 @@ thickness_inner_wall=1;
 cell_height=20;
 cell_width=40;
 cell_depth=40;
-cells = [
+cell_layout = [
     [1,2,3,4]
     , [5,6,7,8]
     , [9,9,9,9]
 ];
 
-build_container(thickness_bottom,thickness_outer_wall,thickness_inner_wall,cell_height,cell_width,cell_depth,cells);
+build_container(thickness_bottom,thickness_outer_wall,thickness_inner_wall,cell_height,cell_width,cell_depth,cell_layout);
 
-module build_container(tb,tow,tiw,h,w,d,cells) {
+function reverse (a, i=0) =
+    len(a) > i ?
+        concat(reverse(a, i+1), [a[i]]) :
+        []
+;
+
+module build_container(tb,tow,tiw,h,w,d,c) {
+    cells = reverse(c);
     cnt_cx = len(cells[0]);
     cnt_cy = len(cells);
     total_x = cnt_cx*w+2*tow+(cnt_cx-1)*tiw;
@@ -41,3 +48,5 @@ module build_container(tb,tow,tiw,h,w,d,cells) {
         }
     }
 }
+
+
